@@ -20,3 +20,9 @@ exercises.c:68:11: error: returning ‘int (*)(List *)’ from a function with r
    68 |    return sumaLista;
       |           ^~~~~~~~~
 8e6519c
+Fri Mar  6 02:28:09 PM UTC 2026: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  2|3
+total_score: 20/70
+b9c0348
