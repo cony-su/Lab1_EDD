@@ -10,3 +10,13 @@ Fri Mar  6 02:13:56 PM UTC 2026:
  tests:  1|4
 total_score: 10/70
 04f1222
+Fri Mar  6 02:25:27 PM UTC 2026: 
+ exercises.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:68:11: error: returning ‘int (*)(List *)’ from a function with return type ‘int’ makes integer from pointer without a cast [-Wint-conversion]
+   68 |    return sumaLista;
+      |           ^~~~~~~~~
+8e6519c
