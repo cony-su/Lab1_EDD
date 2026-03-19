@@ -107,6 +107,34 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-   return 0;
-}
+    Stack* pila = create_stack();
 
+    for (int i = 0; cadena[i] != '\0'; i++) {
+        char c = cadena[i];
+
+        // Si es de apertura, a la pila
+        if (c == '(' || c == '[' || c == '{') {
+            char* p = (char*) malloc(sizeof(char));
+            *p = c;
+            push(pila, p);
+        } 
+        // Si es de cierre
+        else if (c == ')' || c == ']' || c == '}') {
+            char* aperturaPtr = (char*) pop(pila);
+            if (aperturaPtr == NULL) return 0; // Pila vacía, no hay apertura
+
+            char apertura = *aperturaPtr;
+            free(aperturaPtr); // Liberar memoria del char guardado
+
+            if ((c == ')' && apertura != '(') ||
+                (c == ']' && apertura != '[') ||
+                (c == '}' && apertura != '{')) {
+                return 0; // No coinciden
+            }
+        }
+    }
+
+    // Si la pila está vacía al final, está balanceado
+    int balanceado = (pop(pila) == NULL) ? 1 : 0;
+    return balanceado;
+}
